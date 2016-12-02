@@ -170,17 +170,20 @@ class Api extends Component
      * @param $amount
      * @param $currency
      * @param $email
-     * @param $note
-     * @param $savePaymentTemplate
+     * @param $walletId
+     * @param null $note
+     * @param bool|false $savePaymentTemplate
      * @return \stdClass
+     * @throws \Exception
      * @throws \SoapFault
      */
-    public function validateSendMoney($amount, $currency, $email, $note = null, $savePaymentTemplate = false)
+    public function validateSendMoney($amount, $currency, $email, $walletId, $note = null, $savePaymentTemplate = false)
     {
         return $this->call('validationSendMoney', [
             'amount' => static::normalizeAmount($amount),
             'currency' => $currency,
             'email' => $email,
+            'walletId' => $walletId,
             'note' => $note,
             'savePaymentTemplate' => $savePaymentTemplate
         ]);
@@ -343,19 +346,22 @@ class Api extends Component
      * @param $amount
      * @param $currency
      * @param $email
+     * @param $walletId
      * @param null $note
-     * @param bool $savePaymentTemplate
+     * @param bool|false $savePaymentTemplate
      * @return \stdClass
+     * @throws \Exception
      * @throws \SoapFault
      */
-    public function sendMoney($amount, $currency, $email, $note = null, $savePaymentTemplate = false)
+    public function sendMoney($amount, $currency, $email, $walletId, $note = null, $savePaymentTemplate = false)
     {
         return $this->call('sendMoney', [
             'amount' => static::normalizeAmount($amount),
             'currency' => $currency,
             'email' => $email,
+            'walletId' => $walletId,
             'note' => $note,
-            'savePaymentTemplate' => $savePaymentTemplate
+            'savePaymentTemplate' => $savePaymentTemplate,
         ]);
     }
 
