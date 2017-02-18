@@ -125,7 +125,7 @@ Sample controller code:
     
             if (!$invoice instanceof Invoice ||
                 $invoice->status != Invoice::STATUS_NEW ||
-                ArrayHelper::getValue($event->gatewayData, 'ac_merchant_amount') != $invoice->amount ||
+                ArrayHelper::getValue($event->gatewayData, 'ac_amount') != $invoice->amount ||
                 ArrayHelper::getValue($event->gatewayData,
                     'ac_transaction_status') != Merchant::TRANSACTION_STATUS_COMPLETED ||
                 ArrayHelper::getValue($event->gatewayData, 'ac_sci_name') != $this->component->merchantName
