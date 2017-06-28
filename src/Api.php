@@ -570,4 +570,27 @@ class Api extends Component
             'ip' => $ip,
         ]);
     }
+
+    /**
+     * Obtaining the exchange rate
+     *
+     * @param $fromCurrency
+     * @param $toCurrency
+     * @param $action
+     * @param $amount
+     * @return \stdClass
+     */
+    public function checkCurrencyExchange(
+        $fromCurrency,
+        $toCurrency,
+        $action,
+        $amount
+    ) {
+        return $this->call('checkCurrencyExchange', [
+            'from' => $fromCurrency,
+            'to' => $toCurrency,
+            'action' => $action,
+            'amount' => static::normalizeAmount($amount),
+        ]);
+    }
 }
