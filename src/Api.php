@@ -279,7 +279,7 @@ class Api extends Component
         return $this->call('validationSendMoneyToEcurrency', [
             'amount' => static::normalizeAmount($amount),
             'currency' => $currency,
-            'eCurrency' => $eCurrency,
+            'ecurrency' => $eCurrency,
             'receiver' => $receiver,
             'note' => $note,
             'savePaymentTemplate' => $savePaymentTemplate
@@ -443,7 +443,7 @@ class Api extends Component
         return $this->call('sendMoneyToEcurrency', [
             'amount' => static::normalizeAmount($amount),
             'currency' => $currency,
-            'eCurrency' => $eCurrency,
+            'ecurrency' => $eCurrency,
             'receiver' => $receiver,
             'note' => $note,
             'savePaymentTemplate' => $savePaymentTemplate
